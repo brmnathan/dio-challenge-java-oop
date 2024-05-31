@@ -21,10 +21,14 @@ public class Bank {
     }
 
     public void printAccountList() {
-        System.out.println("Accounts in " + BANK_NAME + ":");
-        for (Account account : accountList) {
-            System.out.println("Account Holder: " + account.getClient().getName() +
-                    ", Account Number: " + account.getNumber());
+        if (accountList.isEmpty())
+            throw new BankException("There are no accounts in the bank!");
+        else {
+            System.out.println("Accounts in " + BANK_NAME + ":");
+            for (Account account : accountList) {
+                System.out.println("Account Holder: " + account.getClient().getName() +
+                        ", Account Number: " + account.getNumber());
+            }
         }
     }
 }

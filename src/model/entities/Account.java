@@ -38,17 +38,24 @@ public abstract class Account {
     }
 
     public void withdraw(double value) {
-        balance -= value;
+        if (value > balance)
+            throw new BankException("Insufficient balance!");
+        else
+            balance -= value;
     }
 
     public void transfer(double value, Account target) {
-        this.withdraw(value);
-        target.deposit(value);
+        if (target == null)
+            throw new BankException("Is necessary to add target account to transfer!");
+        else {
+            this.withdraw(value);
+            target.deposit(value);
+        }
     }
 
     public void getAccountHolderInfo() {
-        System.out.println("Account " + number + " Holder Complete Info:");
-        System.out.println(client + "\n");
+        System.out.println("Account " + number + " Holder Complete Info:" +
+                "\n" + client + "\n");
     }
 
     public void printBankStatement() {
