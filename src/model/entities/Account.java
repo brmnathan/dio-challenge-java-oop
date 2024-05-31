@@ -10,7 +10,7 @@ public abstract class Account {
     protected int number;
     protected double balance = 0;
 
-    public Account(Client client, int agency, int number) {
+    public Account(Client client) {
         this.client = client;
         this.agency = DEFAULT_AGENCY;
         this.number = ACCOUNT_SEQUENCE++;
