@@ -8,12 +8,13 @@ public abstract class Account {
     protected Client client;
     protected int agency;
     protected int number;
-    protected double balance = 0;
+    protected double balance = 0d;
 
     public Account(Client client) {
         this.client = client;
         this.agency = DEFAULT_AGENCY;
         this.number = ACCOUNT_SEQUENCE++;
+        Bank.addAccount(this);
     }
 
     public Client getClient() {
@@ -45,11 +46,15 @@ public abstract class Account {
         target.deposit(value);
     }
 
-    @Override
-    public String toString() {
-        return "Holder: " + client.getName() +
+    public void getAccountHolderInfo() {
+        System.out.println("Account " + number + " Holder Complete Info:");
+        System.out.println(client + "\n");
+    }
+
+    public void printBankStatement() {
+        System.out.println("Holder: " + client.getName() +
                 "\nAgency: " + agency +
                 "\nNumber: " + number +
-                "\nBalance: " + balance;
+                "\nBalance: " + balance + "\n");
     }
 }

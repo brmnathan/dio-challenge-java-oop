@@ -6,7 +6,6 @@ import java.util.List;
 public class Bank {
 
     private static final String BANK_NAME = "NewBank";
-
     private static List<Account> accountList;
 
     public Bank() {

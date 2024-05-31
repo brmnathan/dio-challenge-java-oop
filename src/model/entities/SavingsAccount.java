@@ -6,8 +6,9 @@ public class SavingsAccount extends Account{
         super(client);
     }
 
+    @Override
     public void printBankStatement() {
-        System.out.println("Savings Account Statement: ");
-        System.out.println(super.toString());
+        System.out.println("Savings Account Statement");
+        super.printBankStatement();
     }
 }

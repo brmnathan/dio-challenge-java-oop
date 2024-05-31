@@ -6,8 +6,9 @@ public class CheckingAccount extends Account{
         super(client);
     }
 
+    @Override
     public void printBankStatement() {
-        System.out.println("Checking Account Statement: ");
-        System.out.println(super.toString());
+        System.out.println("Checking Account Statement");
+        super.printBankStatement();
     }
 }
